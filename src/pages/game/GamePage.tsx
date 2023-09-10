@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import "./GamePage.scss";
 import Settings from "../../components/settings/Settings";
+import Board from "../../components/board/Board";
+import "./GamePage.scss";
 
 const GamePage = () => {
   const [startGame, setStartGame] = useState<boolean>(false);
+  const [players, setPlayers] = useState(0);
+  const [cards, setCards] = useState(0);
 
   const commands = [
     {
@@ -24,7 +27,9 @@ const GamePage = () => {
     }
   }, []);
 
-  const startListening = () => {
+  const startListening = (numberPlayers: number, numberCards: number) => {
+    setPlayers(numberPlayers);
+    setCards(numberCards);
     setStartGame(true);
     SpeechRecognition.startListening({ continuous: true });
   };
@@ -32,18 +37,19 @@ const GamePage = () => {
   const stopListening = () => {
     SpeechRecognition.stopListening();
     setStartGame(false);
+    setPlayers(0);
+    setCards(0);
     resetTranscript();
   };
 
   return (
     <div>
-      <div>
-        <Settings
-          startGame={startGame}
-          cbStartListening={startListening}
-          cbStopListening={stopListening}
-        />
-      </div>
+      <Settings
+        startGame={startGame}
+        cbStartListening={startListening}
+        cbStopListening={stopListening}
+      />
+      {startGame && <Board players={players} cards={cards} />}
     </div>
   );
 };
