@@ -20,7 +20,7 @@ const Settings = ({
     const numberPlayers = Array(players)
       .fill(null)
       .map((_, ind) => {
-        return { player: ind + 1, card: [] };
+        return { player: ind + 1, cardImage: [], card: [] };
       });
     cbStartListening(numberPlayers, cards);
   };
@@ -33,7 +33,7 @@ const Settings = ({
     setPlayers(Number(e.target.value));
   };
 
-  const handleCards = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCards = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCards(Number(e.target.value));
   };
 
@@ -48,13 +48,27 @@ const Settings = ({
               <option value={3}>3</option>
               <option value={4}>4</option>
               <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
             </select>
-            <label htmlFor="cards">Количество карт</label>
-            <select name="cards" onChange={handleCards}>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-            </select>
+            <p>Количество карт</p>
+            <label htmlFor="twocards">2</label>
+            <input
+              type="radio"
+              value={2}
+              name="twocards"
+              onChange={handleCards}
+            />
+            <label htmlFor="twocards">3</label>
+            <input
+              type="radio"
+              value={3}
+              name="twocards"
+              onChange={handleCards}
+            />
           </div>
           <button
             type="button"

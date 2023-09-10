@@ -9,7 +9,8 @@ import "./GamePage.scss";
 
 export interface IPlayers {
   player: number;
-  card: string[];
+  cardImage: string[];
+  card: { name: string; suit: string }[];
 }
 
 const GamePage = () => {
@@ -19,24 +20,28 @@ const GamePage = () => {
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [currentCountCards, setCurrentCountCards] = useState(0);
 
-  const addingCard = (card: string) => {
+  const addingCard = (image: string, card: { name: string; suit: string }) => {
     const newState = players.slice();
     newState.forEach((el, ind) => {
-      if (ind === currentPlayer && cards !== el.card.length) {
+      if (ind === currentPlayer && cards !== el.cardImage.length) {
+        el.cardImage.push(image);
         el.card.push(card);
         setCurrentCountCards(currentCountCards + 1);
       }
     });
     setPlayers(newState);
-    currentPlayer === players.length
-      ? setCurrentPlayer(0)
-      : setCurrentPlayer(currentPlayer + 1);
+    setCurrentPlayer(currentPlayer + 1);
   };
+
+  useEffect(() => {
+    currentPlayer === players.length && setCurrentPlayer(0);
+    // eslint-disable-next-line
+  }, [currentPlayer]);
 
   const { transcript, resetTranscript } = useSpeechRecognition({
     commands: speechCommands(addingCard),
   });
-
+  console.log(transcript);
   useEffect(() => {
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
       alert("Ups, your browser is not supported!");
