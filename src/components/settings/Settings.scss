@@ -1,0 +1,30 @@
+.containerSetting {
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.settingsForPlayers {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.startButton,
+.endButton {
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+}
+
+.startButton {
+  background-color: rgb(27, 191, 27);
+  border: solid 1px rgb(27, 191, 27);
+  margin-top: 30px;
+}
+
+.endButton {
+  background-color: rgb(221, 89, 89);
+  border: solid 1px rgb(221, 89, 89);
+}
