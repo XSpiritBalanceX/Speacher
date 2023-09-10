@@ -16,8 +16,10 @@
 }
 
 .cards {
-  border: solid 1px red;
-  width: 7em;
-  height: 8em;
   margin-right: 10px;
+  img {
+    width: 7em;
+    height: 9em;
+    border-radius: 10px;
+  }
 }

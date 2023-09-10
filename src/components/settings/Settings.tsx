@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { IPlayers } from "../../pages/game/GamePage";
 import "./Settings.scss";
 
 interface ISettingsProps {
   startGame: boolean;
-  cbStartListening: (numberPlayers: number, numberCards: number) => void;
+  cbStartListening: (numberPlayers: IPlayers[], numberCards: number) => void;
   cbStopListening: () => void;
 }
 
@@ -16,7 +17,12 @@ const Settings = ({
   const [cards, setCards] = useState(2);
 
   const handleStartGame = () => {
-    cbStartListening(players, cards);
+    const numberPlayers = Array(players)
+      .fill(null)
+      .map((_, ind) => {
+        return { player: ind + 1, card: [] };
+      });
+    cbStartListening(numberPlayers, cards);
   };
 
   const handleStopGame = () => {
