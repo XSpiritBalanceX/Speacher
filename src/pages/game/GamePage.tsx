@@ -4,6 +4,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import Settings from "../../components/settings/Settings";
 import Board from "../../components/board/Board";
+import { speechCommands } from "../../utilities/speechCommands";
 import "./GamePage.scss";
 
 export interface IPlayers {
@@ -32,18 +33,9 @@ const GamePage = () => {
       : setCurrentPlayer(currentPlayer + 1);
   };
 
-  const commands = [
-    {
-      command: "Туз червей",
-      callback: () => addingCard(require("../../images/aceofhearts.jpg")),
-    },
-    {
-      command: "Дама пик",
-      callback: () => addingCard(require("../../images/queenofspades.jpg")),
-    },
-  ];
-
-  const { transcript, resetTranscript } = useSpeechRecognition({ commands });
+  const { transcript, resetTranscript } = useSpeechRecognition({
+    commands: speechCommands(addingCard),
+  });
 
   useEffect(() => {
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
