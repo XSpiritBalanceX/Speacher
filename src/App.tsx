@@ -6,6 +6,8 @@ import aceOfHeart from "./images/aceOfHeart.jpg";
 import queenOfSpades from "./images/queenOfSpades.jpg";
 import sixOfClub from "./images/sixOfClubs.jpg";
 import kingOfTambourine from "./images/kingOfTambourine.jpg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
   const [images, setImages] = useState("");
@@ -13,7 +15,7 @@ const App = () => {
   const sixPronansiation = ["Шестерка треф", "Шестёрка треф"];
   const kingPronansiation = ["Король бубен", "Бубновый король"];
 
-  const commands = [
+  /*  const commands = [
     {
       command: "Туз червей",
       callback: () => setImages(aceOfHeart),
@@ -34,9 +36,9 @@ const App = () => {
       callback: () => setImages(kingOfTambourine),
       matchInterim: true,
     },
-  ];
+  ]; */
 
-  const { transcript, resetTranscript } = useSpeechRecognition({ commands });
+  /* const { transcript, resetTranscript } = useSpeechRecognition({ commands }); */
 
   useEffect(() => {
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
@@ -48,14 +50,14 @@ const App = () => {
     SpeechRecognition.startListening({ continuous: true });
   };
 
-  const stopListening = () => {
+  /*  const stopListening = () => {
     SpeechRecognition.stopListening();
     setImages("");
     resetTranscript();
-  };
+  }; */
 
   return (
-    <div>
+    /* <div>
       <div>
         <p>You: {transcript ? transcript : ""}</p>
       </div>
@@ -70,7 +72,13 @@ const App = () => {
           />
         )}
       </div>
-    </div>
+    </div> */
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/game/:id" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
