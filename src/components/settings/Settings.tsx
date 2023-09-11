@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IPlayers } from "../../types/GameTypes";
 import "./Settings.scss";
 
@@ -15,6 +15,13 @@ const Settings = ({
 }: ISettingsProps) => {
   const [players, setPlayers] = useState(2);
   const [cards, setCards] = useState(2);
+
+  useEffect(() => {
+    if (!startGame) {
+      setCards(2);
+      setPlayers(2);
+    }
+  }, [startGame]);
 
   const handleStartGame = () => {
     const numberPlayers = Array(players)
@@ -64,6 +71,7 @@ const Settings = ({
                   value={2}
                   name="twocards"
                   onChange={handleCards}
+                  checked={cards === 2}
                 />
               </div>
               <div>
@@ -73,6 +81,7 @@ const Settings = ({
                   value={3}
                   name="twocards"
                   onChange={handleCards}
+                  checked={cards === 3}
                 />
               </div>
             </div>

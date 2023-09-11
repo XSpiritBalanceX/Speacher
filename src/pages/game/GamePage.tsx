@@ -5,7 +5,8 @@ import SpeechRecognition, {
 import Settings from "../../components/settings/Settings";
 import Board from "../../components/board/Board";
 import { speechCommands } from "../../utilities/speechCommands";
-import { Card, Suit, IPlayers } from "../../types/GameTypes";
+import { IPlayers } from "../../types/GameTypes";
+import { allCards } from "../../utilities/cardDeck";
 import "./GamePage.scss";
 
 const GamePage = () => {
@@ -14,13 +15,19 @@ const GamePage = () => {
   const [cards, setCards] = useState(0);
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [currentCountCards, setCurrentCountCards] = useState(0);
+  const [cardDeck, setCardDeck] = useState(allCards);
 
-  const addingCard = (image: string, card: { name: Card; suit: Suit }) => {
+  const addingCard = (id: number) => {
     const newState = players.slice();
+    const card = cardDeck.find((el) => el.id === id);
+
     newState.forEach((el, ind) => {
-      if (ind === currentPlayer && cards !== el.cardImage.length) {
-        el.cardImage.push(image);
-        el.card.push(card);
+      if (ind === currentPlayer && cards !== el.cardImage.length && card) {
+        el.cardImage.push(card.image);
+        el.card.push({ name: card.name, suit: card.suit });
+        setCardDeck((prevState) => {
+          return prevState.filter((el) => el.id !== id);
+        });
         setCurrentCountCards(currentCountCards + 1);
       }
     });
@@ -59,6 +66,7 @@ const GamePage = () => {
     setCurrentPlayer(0);
     setCards(0);
     setCurrentCountCards(0);
+    setCardDeck(allCards);
     resetTranscript();
   };
 
