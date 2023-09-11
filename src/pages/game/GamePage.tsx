@@ -31,10 +31,10 @@ const GamePage = () => {
         setCurrentCountCards(currentCountCards + 1);
       }
     });
-
-    setPlayers(newState);
-
-    setCurrentPlayer(currentPlayer + 1);
+    if (card) {
+      setPlayers(newState);
+      setCurrentPlayer(currentPlayer + 1);
+    }
   };
 
   useEffect(() => {
