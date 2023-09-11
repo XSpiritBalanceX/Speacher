@@ -13,8 +13,8 @@ const MainPage = () => {
   };
 
   const handleEnterInPlay = () => {
-    if (!password) {
-      setError("Пароль обязателен");
+    if (password !== "eR,Pe5v49cCU") {
+      setError("Неверный пароль");
     } else {
       navigate("/game/" + password);
     }

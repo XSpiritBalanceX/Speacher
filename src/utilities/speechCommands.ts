@@ -5,7 +5,7 @@ export const speechCommands = (
 ) => {
   const commands = [
     {
-      command: "Туз треф",
+      command: ["Туз треф", "Туз крести"],
       callback: () =>
         cbFunc(require("../images/aceofclubs.jpg"), {
           name: Card.CARD_A,
@@ -13,7 +13,7 @@ export const speechCommands = (
         }),
     },
     {
-      command: "Туз бубен",
+      command: ["Туз бубен", "Туз буби", "Туз бубны"],
       callback: () =>
         cbFunc(require("../images/aceofdiamonds.jpg"), {
           name: Card.CARD_A,
@@ -21,7 +21,7 @@ export const speechCommands = (
         }),
     },
     {
-      command: "Туз червей",
+      command: ["Туз червей", "Туз червы", "Туз черви"],
       callback: () =>
         cbFunc(require("../images/aceofhearts.jpg"), {
           name: Card.CARD_A,
@@ -29,7 +29,7 @@ export const speechCommands = (
         }),
     },
     {
-      command: "Туз пик",
+      command: ["Туз пик", "Туз пики"],
       callback: () =>
         cbFunc(require("../images/aceofspades.jpg"), {
           name: Card.CARD_A,
