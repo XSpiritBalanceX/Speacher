@@ -28,3 +28,13 @@
   background-color: rgb(221, 89, 89);
   border: solid 1px rgb(221, 89, 89);
 }
+
+.radioContainer {
+  display: flex;
+  flex-direction: column;
+  > div {
+    label {
+      margin-right: 10px;
+    }
+  }
+}

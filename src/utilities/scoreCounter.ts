@@ -1,19 +1,26 @@
-export const scoreCounter = (cardsName: { name: string; suit: string }[]) => {
-  let total = 0;
+import { ICard, Suit } from "../types/GameTypes";
 
-  if (cardsName.length === 1) {
-    cardsName.forEach((el) => {
-      total += Number(el.name);
-    });
-  } else if (cardsName.length === 2) {
-    cardsName.forEach((el, ind, arr) => {
-      if (ind !== arr.length - 1 && el.suit === arr[ind + 1].suit) {
-        total = Number(arr[ind].name) + Number(arr[ind + 1].name);
-      } else if (ind !== arr.length - 1 && el.suit !== arr[ind + 1].suit) {
-        total = Math.max(Number(arr[ind].name), Number(arr[ind + 1].name));
-      }
-    });
-  }
+export const scoreCounter = (cardsName: ICard[]) => {
+  const club = cardsName
+    .filter((el) => {
+      return el.suit === Suit.CLUB;
+    })
+    .reduce((acc, el) => acc + Number(el.name), 0);
+  const diamond = cardsName
+    .filter((el) => {
+      return el.suit === Suit.DIAMOND;
+    })
+    .reduce((acc, el) => acc + Number(el.name), 0);
+  const spades = cardsName
+    .filter((el) => {
+      return el.suit === Suit.SPADES;
+    })
+    .reduce((acc, el) => acc + Number(el.name), 0);
+  const heart = cardsName
+    .filter((el) => {
+      return el.suit === Suit.HEART;
+    })
+    .reduce((acc, el) => acc + Number(el.name), 0);
 
-  return total;
+  return Math.max(club, diamond, spades, heart);
 };

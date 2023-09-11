@@ -1,69 +1,71 @@
+import { Card, Suit } from "../types/GameTypes";
+
 export const speechCommands = (
-  cbFunc: (image: string, card: { name: string; suit: string }) => void
+  cbFunc: (image: string, card: { name: Card; suit: Suit }) => void
 ) => {
   const commands = [
     {
       command: "Туз треф",
       callback: () =>
         cbFunc(require("../images/aceofclubs.jpg"), {
-          name: "11",
-          suit: "треф",
+          name: Card.CARD_A,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Туз бубен",
       callback: () =>
         cbFunc(require("../images/aceofdiamonds.jpg"), {
-          name: "11",
-          suit: "бубен",
+          name: Card.CARD_A,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Туз червей",
       callback: () =>
         cbFunc(require("../images/aceofhearts.jpg"), {
-          name: "11",
-          suit: "червей",
+          name: Card.CARD_A,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Туз пик",
       callback: () =>
         cbFunc(require("../images/aceofspades.jpg"), {
-          name: "11",
-          suit: "пик",
+          name: Card.CARD_A,
+          suit: Suit.SPADES,
         }),
     },
     {
       command: "Король треф",
       callback: () =>
         cbFunc(require("../images/kingofclubs.jpg"), {
-          name: "10",
-          suit: "треф",
+          name: Card.CARD_K,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Король бубен",
       callback: () =>
         cbFunc(require("../images/kingofdiamonds.jpg"), {
-          name: "10",
-          suit: "бубен",
+          name: Card.CARD_K,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Король червей",
       callback: () =>
         cbFunc(require("../images/kingofhearts.jpg"), {
-          name: "10",
-          suit: "червей",
+          name: Card.CARD_K,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Король пик",
       callback: () =>
         cbFunc(require("../images/kingofspades.jpg"), {
-          name: "10",
-          suit: "пик",
+          name: Card.CARD_K,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -71,32 +73,32 @@ export const speechCommands = (
       command: "Дама треф",
       callback: () =>
         cbFunc(require("../images/queenofclubs.jpg"), {
-          name: "10",
-          suit: "треф",
+          name: Card.CARD_Q,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Дама бубен",
       callback: () =>
         cbFunc(require("../images/queenofdiamonds.jpg"), {
-          name: "10",
-          suit: "бубен",
+          name: Card.CARD_Q,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Дама червей",
       callback: () =>
         cbFunc(require("../images/queenofhearts.jpg"), {
-          name: "10",
-          suit: "червей",
+          name: Card.CARD_Q,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Дама пик",
       callback: () =>
         cbFunc(require("../images/queenofspades.jpg"), {
-          name: "10",
-          suit: "пик",
+          name: Card.CARD_Q,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -104,32 +106,32 @@ export const speechCommands = (
       command: "Валет треф",
       callback: () =>
         cbFunc(require("../images/jackofclubs.jpg"), {
-          name: "10",
-          suit: "треф",
+          name: Card.CARD_J,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Валет бубен",
       callback: () =>
         cbFunc(require("../images/jackofdiamonds.jpg"), {
-          name: "10",
-          suit: "бубен",
+          name: Card.CARD_J,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Валет червей",
       callback: () =>
         cbFunc(require("../images/jackofhearts.jpg"), {
-          name: "10",
-          suit: "червей",
+          name: Card.CARD_J,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Валет пик",
       callback: () =>
         cbFunc(require("../images/jackofspades.jpg"), {
-          name: "10",
-          suit: "пик",
+          name: Card.CARD_J,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -137,32 +139,32 @@ export const speechCommands = (
       command: "Десятка треф",
       callback: () =>
         cbFunc(require("../images/tenofclubs.jpg"), {
-          name: "10",
-          suit: "треф",
+          name: Card.CARD_10,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Десятка бубен",
       callback: () =>
         cbFunc(require("../images/tenofdiamonds.jpg"), {
-          name: "10",
-          suit: "бубен",
+          name: Card.CARD_10,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Десятка червей",
       callback: () =>
         cbFunc(require("../images/tenofhearts.jpg"), {
-          name: "10",
-          suit: "червей",
+          name: Card.CARD_10,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Десятка пик",
       callback: () =>
         cbFunc(require("../images/tenofspades.jpg"), {
-          name: "10",
-          suit: "пик",
+          name: Card.CARD_10,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -170,32 +172,32 @@ export const speechCommands = (
       command: "Девятка треф",
       callback: () =>
         cbFunc(require("../images/nineofclubs.jpg"), {
-          name: "9",
-          suit: "треф",
+          name: Card.CARD_9,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Девятка бубен",
       callback: () =>
         cbFunc(require("../images/nineofdiamonds.jpg"), {
-          name: "9",
-          suit: "бубен",
+          name: Card.CARD_9,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Девятка червей",
       callback: () =>
         cbFunc(require("../images/nineofhearts.jpg"), {
-          name: "9",
-          suit: "червей",
+          name: Card.CARD_9,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Девятка пик",
       callback: () =>
         cbFunc(require("../images/nineofspades.jpg"), {
-          name: "9",
-          suit: "пик",
+          name: Card.CARD_9,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -203,32 +205,32 @@ export const speechCommands = (
       command: "Восьмёрка треф",
       callback: () =>
         cbFunc(require("../images/eightofclubs.jpg"), {
-          name: "8",
-          suit: "треф",
+          name: Card.CARD_8,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Восьмёрка бубен",
       callback: () =>
         cbFunc(require("../images/eightofdiamonds.jpg"), {
-          name: "8",
-          suit: "бубен",
+          name: Card.CARD_8,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Восьмёрка червей",
       callback: () =>
         cbFunc(require("../images/eightofhearts.jpg"), {
-          name: "8",
-          suit: "червей",
+          name: Card.CARD_8,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Восьмёрка пик",
       callback: () =>
         cbFunc(require("../images/eightofspades.jpg"), {
-          name: "8",
-          suit: "пик",
+          name: Card.CARD_8,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -236,32 +238,32 @@ export const speechCommands = (
       command: "Семёрка треф",
       callback: () =>
         cbFunc(require("../images/sevenofclubs.jpg"), {
-          name: "7",
-          suit: "треф",
+          name: Card.CARD_7,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Семёрка бубен",
       callback: () =>
         cbFunc(require("../images/sevenofdiamonds.jpg"), {
-          name: "7",
-          suit: "бубен",
+          name: Card.CARD_7,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Семёрка червей",
       callback: () =>
         cbFunc(require("../images/sevenofhearts.jpg"), {
-          name: "7",
-          suit: "червей",
+          name: Card.CARD_7,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Семёрка пик",
       callback: () =>
         cbFunc(require("../images/sevenofspades.jpg"), {
-          name: "7",
-          suit: "пик",
+          name: Card.CARD_7,
+          suit: Suit.SPADES,
         }),
     },
 
@@ -269,32 +271,32 @@ export const speechCommands = (
       command: "Шестёрка треф",
       callback: () =>
         cbFunc(require("../images/sixofclubs.jpg"), {
-          name: "6",
-          suit: "треф",
+          name: Card.CARD_6,
+          suit: Suit.CLUB,
         }),
     },
     {
       command: "Шестёрка бубен",
       callback: () =>
         cbFunc(require("../images/sixofdiamonds.jpg"), {
-          name: "6",
-          suit: "бубен",
+          name: Card.CARD_6,
+          suit: Suit.DIAMOND,
         }),
     },
     {
       command: "Шестёрка червей",
       callback: () =>
         cbFunc(require("../images/sixofhearts.jpg"), {
-          name: "6",
-          suit: "червей",
+          name: Card.CARD_6,
+          suit: Suit.HEART,
         }),
     },
     {
       command: "Шестёрка пик",
       callback: () =>
         cbFunc(require("../images/sixofspades.jpg"), {
-          name: "6",
-          suit: "пик",
+          name: Card.CARD_6,
+          suit: Suit.SPADES,
         }),
     },
 

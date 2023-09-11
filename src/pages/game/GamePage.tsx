@@ -5,13 +5,8 @@ import SpeechRecognition, {
 import Settings from "../../components/settings/Settings";
 import Board from "../../components/board/Board";
 import { speechCommands } from "../../utilities/speechCommands";
+import { Card, Suit, IPlayers } from "../../types/GameTypes";
 import "./GamePage.scss";
-
-export interface IPlayers {
-  player: number;
-  cardImage: string[];
-  card: { name: string; suit: string }[];
-}
 
 const GamePage = () => {
   const [startGame, setStartGame] = useState<boolean>(false);
@@ -20,7 +15,7 @@ const GamePage = () => {
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [currentCountCards, setCurrentCountCards] = useState(0);
 
-  const addingCard = (image: string, card: { name: string; suit: string }) => {
+  const addingCard = (image: string, card: { name: Card; suit: Suit }) => {
     const newState = players.slice();
     newState.forEach((el, ind) => {
       if (ind === currentPlayer && cards !== el.cardImage.length) {
@@ -29,7 +24,9 @@ const GamePage = () => {
         setCurrentCountCards(currentCountCards + 1);
       }
     });
+
     setPlayers(newState);
+
     setCurrentPlayer(currentPlayer + 1);
   };
 

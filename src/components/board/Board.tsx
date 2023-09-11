@@ -1,14 +1,6 @@
 import { scoreCounter } from "../../utilities/scoreCounter";
+import { IBoardProps } from "../../types/GameTypes";
 import "./Board.scss";
-
-interface IBoardProps {
-  players: {
-    player: number;
-    cardImage: string[];
-    card: { name: string; suit: string }[];
-  }[];
-  cards: number;
-}
 
 const Board = ({ players, cards }: IBoardProps) => {
   return (

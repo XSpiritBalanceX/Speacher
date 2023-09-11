@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IPlayers } from "../../pages/game/GamePage";
+import { IPlayers } from "../../types/GameTypes";
 import "./Settings.scss";
 
 interface ISettingsProps {
@@ -22,6 +22,7 @@ const Settings = ({
       .map((_, ind) => {
         return { player: ind + 1, cardImage: [], card: [] };
       });
+
     cbStartListening(numberPlayers, cards);
   };
 
@@ -55,20 +56,26 @@ const Settings = ({
               <option value={10}>10</option>
             </select>
             <p>Количество карт</p>
-            <label htmlFor="twocards">2</label>
-            <input
-              type="radio"
-              value={2}
-              name="twocards"
-              onChange={handleCards}
-            />
-            <label htmlFor="twocards">3</label>
-            <input
-              type="radio"
-              value={3}
-              name="twocards"
-              onChange={handleCards}
-            />
+            <div className="radioContainer">
+              <div>
+                <label htmlFor="twocards">2</label>
+                <input
+                  type="radio"
+                  value={2}
+                  name="twocards"
+                  onChange={handleCards}
+                />
+              </div>
+              <div>
+                <label htmlFor="twocards">3</label>
+                <input
+                  type="radio"
+                  value={3}
+                  name="twocards"
+                  onChange={handleCards}
+                />
+              </div>
+            </div>
           </div>
           <button
             type="button"
